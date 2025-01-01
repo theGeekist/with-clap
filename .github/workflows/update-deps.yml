@@ -1,0 +1,52 @@
+name: Dependency Maintenance
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Run daily
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  update-deps:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cache Cargo Build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-      
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust and Tools
+        run: |
+          rustup update
+          rustup component add clippy  # Install Clippy linting
+          cargo install cargo-outdated
+
+      - name: Check for Outdated Dependencies
+        run: |
+          cargo outdated || echo "No outdated dependencies found."
+
+      - name: Run Clippy for Linting
+        run: cargo clippy -- -D warnings  # Treat warnings as errors
+
+      - name: Run Tests
+        run: cargo test --verbose  # Run tests and display detailed output
+
+      - name: Update Dependencies
+        run: cargo update  # Update Cargo.lock with latest versions
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add .
+          git diff --cached --quiet || git commit -m "Update dependencies to latest versions"
+          git push
