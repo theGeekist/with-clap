@@ -1,7 +1,9 @@
 use clap::{Arg, Command};
 use log::{info, warn};
 use serde::{Deserialize, Serialize};
-use serde_json;
+use serde_json::{from_str, to_string};
+use std::fs::File;
+use std::io::Write;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Config {
@@ -43,10 +45,15 @@ fn main() {
             version: env!("CARGO_PKG_VERSION").to_string(),
         };
 
-        let serialized = serde_json::to_string(&config).unwrap();
+        let serialized = to_string(&config).unwrap();
         println!("Serialized Config: {}", serialized);
 
-        let deserialized: Config = serde_json::from_str(&serialized).unwrap();
+        // Write to a file
+        let mut file = File::create("config.json").expect("Failed to create file");
+        file.write_all(serialized.as_bytes())
+            .expect("Failed to write to file");
+
+        let deserialized: Config = from_str(&serialized).unwrap();
         println!("Deserialized Config: {:?}", deserialized);
     }
 }
@@ -54,6 +61,7 @@ fn main() {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use serde_json::{from_str, to_string};
 
     #[test]
     fn test_config_serialisation() {
@@ -61,7 +69,11 @@ mod tests {
             user: "Test User".to_string(),
             version: "0.1.0".to_string(),
         };
-        let serialized = serde_json::to_string(&config).unwrap();
+        let serialized = to_string(&config).unwrap();
         assert_eq!(serialized, r#"{"user":"Test User","version":"0.1.0"}"#);
+
+        let deserialized: Config = from_str(&serialized).unwrap();
+        assert_eq!(deserialized.user, "Test User");
+        assert_eq!(deserialized.version, "0.1.0");
     }
 }
