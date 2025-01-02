@@ -1,17 +1,18 @@
 [package]
 name = "with-clap"
-version = "0.2.0"
+version = "0.1.3"
 authors = ["Jason Joseph Nathan <jjnathanjr@gmail.com>"]
 edition = "2021"
 
 [dependencies]
-clap = "*"
-log = "*"
-pretty_env_logger = "*"
-serde = { version = "*", features = ["derive"] }
-serde_json = "*"
+clap = "4.5.23"
+log = "0.4.22"
+pretty_env_logger = "0.5.0"
+serde = { version = "1.0.217", features = ["derive"] }
+serde_json = "1.0.134"
 
 [dev-dependencies]
-cargo-watch = "*"
-cargo-tarpaulin = "*"
-clippy = "*"
+cargo-tarpaulin = "0.31.4"
+cargo-watch = "8.5.3"
+clippy = "0.0.302"
+
