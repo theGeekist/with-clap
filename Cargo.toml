@@ -1,18 +1,18 @@
 [package]
-name = "{{project-name}}"
-version = "0.1.0"
+name = "with-clap"
+version = "0.2.0"
 authors = ["Jason Joseph Nathan <jjnathanjr@gmail.com>"]
 edition = "2021"
 
 [dependencies]
-clap = "4.2"  # Pin to the latest known stable version
-log = "0.4.20"  # Pin to the latest compatible version
-pretty_env_logger = "0.4.0"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0.99"
+clap = "*"
+log = "*"
+pretty_env_logger = "*"
+serde = { version = "*", features = ["derive"] }
+serde_json = "*"
 
 [dev-dependencies]
-cargo-watch = "8.1"  # For live reloading during development
-cargo-tarpaulin = "0.22"  # Optional: Test coverage reporting
-cargo-audit = "0.17"  # Optional: Dependency vulnerability scanner
-clippy = { version = "0.1", optional = true }
+cargo-watch = "*"
+cargo-tarpaulin = "*"
+cargo-audit = "*"
+clippy = "*"

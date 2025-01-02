@@ -3,7 +3,7 @@ name: Dependency Maintenance
 on:
   schedule:
     - cron: "0 0 * * *"  # Run daily
-  workflow_dispatch:  # Allow manual triggering
+  workflow_dispatch:
 
 jobs:
   update-deps:
@@ -16,30 +16,52 @@ jobs:
           path: |
             ~/.cargo/registry
             ~/.cargo/git
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml') }}
           restore-keys: |
-            ${{ runner.os }}-cargo-      
+            ${{ runner.os }}-cargo-
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Install Rust and Tools
         run: |
           rustup update
-          rustup component add clippy  # Install Clippy linting
-          cargo install cargo-outdated
+          rustup component add clippy
+          cargo install cargo-edit
 
-      - name: Check for Outdated Dependencies
+      - name: Extract Version
+        id: version
+        run: echo "::set-output name=version::$(grep -oP '(?<=^version = ").*(?="$)' Cargo.toml || echo "0.1.0")"
+  
+      - name: Remove Existing Cargo.toml
         run: |
-          cargo outdated || echo "No outdated dependencies found."
+          rm -f Cargo.toml Cargo.lock
 
-      - name: Run Clippy for Linting
-        run: cargo clippy -- -D warnings  # Treat warnings as errors
+      - name: Regenerate Cargo.toml with Metadata
+        env:
+          CARGO_NAME: with-clap
+          CARGO_AUTHORS: "Jason Joseph Nathan <jjnathanjr@gmail.com>"
+          CARGO_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          cargo init --bin
+          sed -i "s/^version = .*/version = \"${CARGO_VERSION}\"/" Cargo.toml
+
+      - name: Add Dependencies
+        run: |
+          cargo add clap log pretty_env_logger serde --features derive serde_json
+          cargo add --dev cargo-watch cargo-tarpaulin cargo-audit clippy
+
+      - name: Compile Project
+        run: cargo build --release
 
       - name: Run Tests
-        run: cargo test --verbose  # Run tests and display detailed output
+        run: cargo test
 
-      - name: Update Dependencies
-        run: cargo update  # Update Cargo.lock with latest versions
+      - name: Lint with Clippy
+        run: cargo clippy -- -D warnings
+
+      - name: Execute main.rs
+        run: ./target/release/with-clap --name "Test User"
 
       - name: Commit and Push Changes
         env:
@@ -47,6 +69,6 @@ jobs:
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add .
+          git add Cargo.toml Cargo.lock
           git diff --cached --quiet || git commit -m "Update dependencies to latest versions"
           git push
