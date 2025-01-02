@@ -1,18 +1,17 @@
 # `with-clap`
 
-A simple template for building CLI applications with Rust, it includes `clap` for command-line argument parsing and structured logging with `pretty_env_logger`. 
+A simple template for building CLI applications with Rust. It includes `clap` for command-line argument parsing and structured logging with `pretty_env_logger`.
 
-Perfect for folks who want a quick base for CLI tools so you can simply use `rustnew my_project` when you create new rust projects.
-
-Dependancies are checked, updated & tested every day via Github Actions!
+Perfect for developers who want a quick base for CLI tools. Generate projects effortlessly with a single command and let GitHub Actions handle dependency updates and checks for you!
 
 ---
 
 ## **Features**
-- **Project Metadata**: Automatically incorporates `name`, `version`, and `author` from `Cargo.toml`.
-- **CLI Argument Parsing**: Leverages `clap` for intuitive argument handling.
-- **Structured Logging**: Includes `pretty_env_logger` for clean, structured output.
-- **Serialization Support**: Demonstrates `serde` and `serde_json` for working with structured data.
+- **🚀 Modern CLI Argument Parsing**: Powered by `clap` for intuitive and flexible command-line interfaces.
+- **📜 Structured Logging**: Uses `pretty_env_logger` for clean and readable output.
+- **📦 Serialization Support**: Demonstrates `serde` and `serde_json` for handling structured data.
+- **🔄 Automated Maintenance**: Dependencies are updated and tested daily via GitHub Actions.
+- **📄 Project Metadata**: Automatically incorporates `name`, `version`, and `authors` from `Cargo.toml`.
 
 ---
 
@@ -43,9 +42,13 @@ cargo generate --git https://github.com/theGeekist/with-clap.git --name my_proje
 ---
 
 ### **Optional: Add a Handy Alias**
-For convenience, create an alias in your shell configuration:
+For convenience, create an alias in your shell configuration file (e.g., .bashrc, .zshrc):
+
+bash
+Copy code
 ```bash
 alias rustnew='cargo generate --git https://github.com/theGeekist/with-clap.git --name'
+source ~/.zshrc  # or ~/.bashrc
 ```
 Now, you can quickly generate projects with:
 ```bash
@@ -57,27 +60,38 @@ rustnew my_project
 ## **Usage**
 Once your project is generated, you can build and run it:
 
-1. **Run the CLI:**
+1. **Run the example CLI:**
    ```bash
-   cargo run -- --name <YOUR_NAME>
+   cargo run -- --user <YOUR_USERNAME>
+
    ```
 
-2. **Output Example:**
+2. **Run Tests:** Execute included tests to ensure functionality:
+   ```bash
+   cargo test
+   ```
+
+3. **Lint the Code:** Use Clippy to maintain code quality:
+   ```bash
+   cargo clippy -- -D warnings
+   ```   
+
+4. **Example Output:**
    ```bash
    Starting the application...
-   Name provided: <YOUR_NAME>
-   Serialized Config: {"name":"<YOUR_NAME>","version":"0.1.0"}
-   Deserialized Config: Config { name: "<YOUR_NAME>", version: "0.1.0" }
+   Name provided: <PROJECT_NAME>
+   Serialized Config: {"name":"<PROJECT_NAME>","version":"0.1.0"}
+   Deserialized Config: Config { name: "<PROJECT_NAME>", version: "0.1.0" }
    ```
 
 ---
 
 ## **Why Use This Template?**
 
-- **Time-Saving**: Eliminates boilerplate, letting you focus on building features.
-- **Best Practices**: Incorporates modern Rust idioms and tools.
-- **Extensible**: Easily customise it to suit your project needs.
-- **Automated Maintenance**: Dependencies are checked, updated, and tested daily via GitHub Actions.
+- ⏳ Eliminates boilerplate, letting you focus on building features.
+- 🛠️ Incorporates modern Rust idioms and tools.
+- 🔧 Easily customise it to suit your project needs.
+- ⚙️ Dependencies are checked, updated, and tested daily via GitHub Actions.
 
 ---
 
@@ -91,3 +105,10 @@ Contributions are welcome! Feel free to:
 
 ## **License**
 This project is licensed under the [MIT License](LICENSE).
+
+
+So I think that time signature should be optional and we should default to the usual suspects for ease of use, for example, 4/4, 3/4, 6/8 etc. Because many people don't care for this much and it would be nice to guide them along
+
+Also, I think that it would be prudent to always display the computed bpm for all the given time signatures - unless one was chosen via the interactive prompt or flag.
+
+Also I have a new base rust project template that I am now using:

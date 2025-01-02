@@ -5,7 +5,7 @@ use serde_json;
 
 #[derive(Serialize, Deserialize, Debug)]
 struct Config {
-    name: String,
+    user: String,
     version: String,
 }
 
@@ -20,21 +20,26 @@ fn main() {
         .author(env!("CARGO_PKG_AUTHORS"))
         .about("A starter CLI application using Rust")
         .arg(
-            Arg::new("name")
-                .short('n')
-                .long("name")
-                .value_name("NAME")
-                .help("Your name")
-                .takes_value(true),
+            Arg::new("user")
+                .short('u')
+                .long("user")
+                .value_name("USER")
+                .help("Your username")
+                .required(true),
         )
         .get_matches();
 
-    if let Some(name) = matches.value_of("name") {
-        info!("Name provided: {}", name);
+    // Log parsing
+    info!("Parsing command-line arguments...");
+    warn!("This is a sample warning log for testing purposes.");
+
+    // Handle the "user" argument
+    if let Some(user) = matches.get_one::<String>("user") {
+        info!("User provided: {}", user);
 
         // Serialize and Deserialize example
         let config = Config {
-            name: name.to_string(),
+            user: user.to_string(),
             version: env!("CARGO_PKG_VERSION").to_string(),
         };
 
@@ -43,7 +48,20 @@ fn main() {
 
         let deserialized: Config = serde_json::from_str(&serialized).unwrap();
         println!("Deserialized Config: {:?}", deserialized);
-    } else {
-        warn!("No name provided. Use --help for usage.");
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_config_serialisation() {
+        let config = Config {
+            user: "Test User".to_string(),
+            version: "0.1.0".to_string(),
+        };
+        let serialized = serde_json::to_string(&config).unwrap();
+        assert_eq!(serialized, r#"{"user":"Test User","version":"0.1.0"}"#);
     }
 }
