@@ -105,10 +105,3 @@ Contributions are welcome! Feel free to:
 
 ## **License**
 This project is licensed under the [MIT License](LICENSE).
-
-
-So I think that time signature should be optional and we should default to the usual suspects for ease of use, for example, 4/4, 3/4, 6/8 etc. Because many people don't care for this much and it would be nice to guide them along
-
-Also, I think that it would be prudent to always display the computed bpm for all the given time signatures - unless one was chosen via the interactive prompt or flag.
-
-Also I have a new base rust project template that I am now using:
