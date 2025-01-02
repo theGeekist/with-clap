@@ -49,7 +49,7 @@ jobs:
       - name: Add Dependencies
         run: |
           cargo add clap log pretty_env_logger serde --features serde/derive serde_json
-          cargo add --dev cargo-watch cargo-tarpaulin cargo-audit clippy
+          cargo add --dev cargo-watch cargo-tarpaulin clippy
 
       - name: Compile Project
         run: cargo build --release
