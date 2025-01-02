@@ -61,7 +61,7 @@ jobs:
         run: cargo clippy -- -D warnings
 
       - name: Execute main.rs
-        run: ./target/release/with-clap --name "Test User"
+        run: ./target/release/with-clap --user "Test User"
 
       - name: Commit and Push Changes
         env:
