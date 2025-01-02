@@ -14,5 +14,4 @@ serde_json = "*"
 [dev-dependencies]
 cargo-watch = "*"
 cargo-tarpaulin = "*"
-cargo-audit = "*"
 clippy = "*"
