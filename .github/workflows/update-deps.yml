@@ -44,7 +44,7 @@ jobs:
         env:
           CARGO_NAME: with-clap
           CARGO_AUTHORS: "Jason Joseph Nathan <jjnathanjr@gmail.com>"
-          CARGO_VERSION: $version
+          CARGO_VERSION: ${{ env.version }}
         run: |
           cargo init --bin
           sed -i "s/^version = .*/version = \"${CARGO_VERSION}\"/" Cargo.toml
