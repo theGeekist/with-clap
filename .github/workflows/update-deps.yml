@@ -32,8 +32,10 @@ jobs:
 
       - name: Extract Version
         id: version
-        run: echo "::set-output name=version::$(grep -oP '(?<=^version = ").*(?="$)' Cargo.toml || echo "0.1.0")"
-  
+        run: |
+          version=$(grep -oP '(?<=^version = ").*(?="$)' Cargo.toml || echo "0.1.0")
+          echo "version=$version" >> $GITHUB_ENV
+
       - name: Remove Existing Cargo.toml
         run: |
           rm -f Cargo.toml Cargo.lock
@@ -42,7 +44,7 @@ jobs:
         env:
           CARGO_NAME: with-clap
           CARGO_AUTHORS: "Jason Joseph Nathan <jjnathanjr@gmail.com>"
-          CARGO_VERSION: ${{ steps.version.outputs.version }}
+          CARGO_VERSION: $version
         run: |
           cargo init --bin
           sed -i "s/^version = .*/version = \"${CARGO_VERSION}\"/" Cargo.toml
