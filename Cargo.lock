@@ -419,7 +419,7 @@ version = "0.32.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7496e93017a031a60aefb09d2c055556ae87b6360f703336a7ac82ed8f0eefe"
 dependencies = [
- "cargo_metadata 0.19.1",
+ "cargo_metadata 0.19.2",
  "cfg-if 1.0.0",
  "chrono",
  "clap 4.5.31",
@@ -484,9 +484,9 @@ dependencies = [
 
 [[package]]
 name = "cargo_metadata"
-version = "0.19.1"
+version = "0.19.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8769706aad5d996120af43197bf46ef6ad0fda35216b4505f926a365a232d924"
+checksum = "dd5eb614ed4c27c5d706420e4320fbe3216ab31fa1c33cd8246ac36dae4479ba"
 dependencies = [
  "camino",
  "cargo-platform",
