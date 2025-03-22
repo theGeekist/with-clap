@@ -1,3 +1,25 @@
+# META: WITH-CLAP
+
+## Folder Structure
+
+```plaintext
+/Users/jasonnathan/Repos/with-clap
+├── Cargo.lock
+├── Cargo.toml
+├── LICENSE
+├── README.md
+├── src
+│   └── main.rs
+└── target
+    ├── CACHEDIR.TAG
+    ├── debug
+    └── release
+
+5 directories, 6 files
+```
+## File: README.md
+
+```md
 # `with-clap`
 
 A simple template for building CLI applications with Rust. It includes `clap` for command-line argument parsing and structured logging with `pretty_env_logger`.
@@ -102,3 +124,11 @@ Contributions are welcome! Feel free to:
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
+```
+
+## Git Repository
+
+```plaintext
+origin	git@github.com:theGeekist/with-clap.git (fetch)
+origin	git@github.com:theGeekist/with-clap.git (push)
+```
