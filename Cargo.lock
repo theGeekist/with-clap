@@ -408,9 +408,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-tarpaulin"
-version = "0.32.5"
+version = "0.32.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bcbb62c44d4ff163bca4e87f35854c939e1c7cc822e1498eadb926f693e9bc7f"
+checksum = "b762f08a27eae3871e32260ebf6ba3d3310b0337cc3e61c260db019ff80a7976"
 dependencies = [
  "cargo_metadata 0.19.2",
  "cfg-if 1.0.0",
@@ -1673,9 +1673,9 @@ checksum = "241eaef5fd12c88705a01fc1066c48c4b36e0dd4377dcdc7ec3942cea7a69956"
 
 [[package]]
 name = "llvm_profparser"
-version = "0.8.1"
+version = "0.8.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "057fc03b8bfdc071acd01f4234a6c791f728c2c47bccdd14a7e51ebe5288522b"
+checksum = "709c1026b4902051c7cff758799defada26e18e41eb390648177e2e142c59fd9"
 dependencies = [
  "anyhow",
  "flate2",
@@ -3761,9 +3761,9 @@ dependencies = [
 
 [[package]]
 name = "zbus"
-version = "5.7.0"
+version = "5.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "88232b74ba057a0c85472ec1bae8a17569960be17da2d5e5ad30d5efe7ea6719"
+checksum = "d3a7c7cee313d044fca3f48fa782cb750c79e4ca76ba7bc7718cd4024cdf6f68"
 dependencies = [
  "async-broadcast",
  "async-executor",
@@ -3794,9 +3794,9 @@ dependencies = [
 
 [[package]]
 name = "zbus_macros"
-version = "5.7.0"
+version = "5.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6969c06899233334676e60da1675740539cf034ee472a6c5b5c54e50a0a554c9"
+checksum = "a17e7e5eec1550f747e71a058df81a9a83813ba0f6a95f39c4e218bdc7ba366a"
 dependencies = [
  "proc-macro-crate",
  "proc-macro2",
