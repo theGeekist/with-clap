@@ -37,7 +37,7 @@ fn main() {
 
     // Handle the "user" argument
     if let Some(user) = matches.get_one::<String>("user") {
-        info!("User provided: {}", user);
+        info!("User provided: {user}");
 
         // Serialize and Deserialize example
         let config = Config {
@@ -46,7 +46,7 @@ fn main() {
         };
 
         let serialized = to_string(&config).unwrap();
-        println!("Serialized Config: {}", serialized);
+        println!("Serialized Config: {serialized}");
 
         // Write to a file
         let mut file = File::create("config.json").expect("Failed to create file");
@@ -54,7 +54,7 @@ fn main() {
             .expect("Failed to write to file");
 
         let deserialized: Config = from_str(&serialized).unwrap();
-        println!("Deserialized Config: {:?}", deserialized);
+        println!("Deserialized Config: {deserialized:?}");
     }
 }
 
