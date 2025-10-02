@@ -102,3 +102,13 @@ Contributions are welcome! Feel free to:
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
+
+
+<br>
+<br>
+<p align="center">
+  <sub>
+    Proudly brought to you by 
+    <a href="https://github.com/theGeekist" target="_blank">@theGeekist</a> and <a href="https://github.com/pipewrk" target="_blank">@pipewrk</a>
+  </sub>
+</p>
