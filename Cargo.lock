@@ -397,9 +397,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-tarpaulin"
-version = "0.35.2"
+version = "0.35.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "05756699a3d73d33132d38ccac43f78cf89bdb714892d1ca2d46dc1a452bd7fe"
+checksum = "65ec01a63f0d312f47bdab19e9a428fa378119eebbee733524e982cfd2a0c50c"
 dependencies = [
  "cargo-config2",
  "cargo_metadata 0.23.1",
@@ -414,9 +414,9 @@ dependencies = [
  "indexmap 1.8.2",
  "libc",
  "llvm_profparser",
- "nix 0.30.1",
+ "nix 0.31.2",
  "num_cpus",
- "object 0.38.1",
+ "object 0.39.1",
  "proc-macro2",
  "procfs",
  "quick-xml 0.39.2",
@@ -1931,9 +1931,9 @@ dependencies = [
 
 [[package]]
 name = "nix"
-version = "0.30.1"
+version = "0.31.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "74523f3a35e05aba87a1d978330aef40f67b0304ac79c1c00b294c9830543db6"
+checksum = "5d6d0705320c1e6ba1d912b5e37cf18071b6c2e9b7fa8215a1e8a7651966f5d3"
 dependencies = [
  "bitflags 2.11.1",
  "cfg-if 1.0.4",
@@ -2078,9 +2078,9 @@ dependencies = [
 
 [[package]]
 name = "object"
-version = "0.38.1"
+version = "0.39.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "271638cd5fa9cca89c4c304675ca658efc4e64a66c716b7cfe1afb4b9611dbbc"
+checksum = "2e5a6c098c7a3b6547378093f5cc30bc54fd361ce711e05293a5cc589562739b"
 dependencies = [
  "flate2",
  "memchr",
