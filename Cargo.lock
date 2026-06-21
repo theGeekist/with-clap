@@ -397,9 +397,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-tarpaulin"
-version = "0.35.4"
+version = "0.35.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "65ec01a63f0d312f47bdab19e9a428fa378119eebbee733524e982cfd2a0c50c"
+checksum = "5c5a495b4348f1964e362f121c9613fbd3e8cc86179a7e9f7e5c7cd3dedbdd9a"
 dependencies = [
  "cargo-config2",
  "cargo_metadata 0.23.1",
@@ -419,7 +419,7 @@ dependencies = [
  "object 0.39.1",
  "proc-macro2",
  "procfs",
- "quick-xml 0.39.4",
+ "quick-xml 0.40.1",
  "quote",
  "regex",
  "rustc-demangle",
@@ -1681,9 +1681,9 @@ dependencies = [
 
 [[package]]
 name = "log"
-version = "0.4.32"
+version = "0.4.33"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "953f07c43838f8e6f9758cab68bf5bed85465e7587ebe0b823f1bcd81978ad3a"
+checksum = "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
 
 [[package]]
 name = "mac-notification-sys"
@@ -2276,9 +2276,9 @@ dependencies = [
 
 [[package]]
 name = "quick-xml"
-version = "0.39.4"
+version = "0.40.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cdcc8dd4e2f670d309a5f0e83fe36dfdc05af317008fea29144da1a2ac858e5e"
+checksum = "2474bd2e5029e7ccb6abb2ba48cf2383a333851dedf495901544281590c7da7f"
 dependencies = [
  "memchr",
 ]
