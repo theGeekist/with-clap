@@ -397,9 +397,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-tarpaulin"
-version = "0.37.3"
+version = "0.37.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2046ed25b78d4f111099c2a185261046c524c7185d6b167afc5660eba8def8b3"
+checksum = "c0c50c0a8219a1865f307b32d99f678afbad9b033eaae11320a249304ef3690a"
 dependencies = [
  "cargo-config2",
  "cargo_metadata 0.23.1",
@@ -1594,9 +1594,9 @@ dependencies = [
 
 [[package]]
 name = "libredox"
-version = "0.1.24"
+version = "0.1.25"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6480ccc157a1389bb2e4891b24751b0f798ba640d22386f23143fbcc89da195a"
+checksum = "61ff90caf6077a803a240f62fdbe88645a890bbca49ef8174c3cb0404362171d"
 dependencies = [
  "libc",
 ]
