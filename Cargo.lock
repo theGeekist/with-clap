@@ -403,9 +403,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-tarpaulin"
-version = "0.37.5"
+version = "0.37.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "14d5e3998cccd7b5da752019bc219b99f83fdfa8e15d10a0507ad15986ac236f"
+checksum = "96ed7f4fe72185490c9e90f708c0ec20fc4f13577885cc896efd7fe2c288b49a"
 dependencies = [
  "cargo-config2",
  "cargo_metadata 0.23.1",
@@ -1639,9 +1639,9 @@ checksum = "47d9d19d1d6efa0109d2f65ff4c85cddd50bd572e5a00127ab10987290bcefae"
 
 [[package]]
 name = "llvm_profparser"
-version = "0.14.0"
+version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6ef908633b7e81770de737cf84490803c21c098148be430ce67a1f40d67d3283"
+checksum = "159806dacc915b3b54e269cd7bb565534ec7b8052bea1e1ee52468440e6f097b"
 dependencies = [
  "anyhow",
  "flate2",
@@ -1716,9 +1716,9 @@ dependencies = [
 
 [[package]]
 name = "mime"
-version = "0.3.17"
+version = "0.3.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6877bb514081ee2a7ff5ef9de3281f14a4dd4bceac4c09388074a6b5df8a139a"
+checksum = "d5848f5a9e8117cf94f2f90faac24a87ff81600ff8628c1e3deaab572e76bfa1"
 
 [[package]]
 name = "mime_guess"
